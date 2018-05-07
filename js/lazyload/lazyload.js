@@ -9,10 +9,11 @@ var LazyLoadImage = (function(){
         setSrc:function(ele){
             // console.log(this);
             console.log('开始下载图片');
+            // 安全性检测
             const url = ele.getAttribute('origin_src')?ele.getAttribute('origin_src'):'';
             if (!url) return;
             const oImg = document.createElement('img');
-            // 不会影响页面， none会离开文档流
+            // 隐藏不会影响页面， none会离开文档流
             oImg.style.display='none';
             document.body.appendChild(oImg);
             
@@ -26,7 +27,8 @@ var LazyLoadImage = (function(){
                 // 不会立即执行，后执行
                 console.log('图片下载完成')
                 ele.src = url;
-                document.body.removeChild(oImg);
+                // 事件发生的内部，this会指向事件发生的元素
+                document.body.removeChild(this);
             }
             // 先执行
             console.log('设置src')
