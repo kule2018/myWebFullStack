@@ -1,0 +1,235 @@
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video{
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    margin: 0;
+    padding: 0;
+    border:0;
+    font-size: 100%;
+    font:inherit;
+    text-shadow:0 0 black;
+}
+html{
+    font-size: 10px !important;
+}
+
+body{
+    margin: 0;
+    background-color: #fbfbfb;
+    font-family: Helvetica,Arial,Roboto,PingFang SC,Microsoft Yahei,Hiragino Sans GB,sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+#db-global-nav{
+    height: 28px;
+    color:#d5d5d5;
+    background-color: #545652;
+    min-width: 950px;
+    font: 12px Helvetica,Arial,sans-serif;
+    line-height: 1.62;
+}
+.top-nav-info{
+    float: right;
+}
+.top-nav-doubanapp{
+    float: right;
+}
+#db-global-nav .global-nav-items{
+    font-size: 0;
+}
+#db-global-nav ul{
+    margin: 0;
+    padding: 0;
+}
+dl,ol,ul{
+    list-style: none;
+}
+/* inline-block 有缺陷，解决了行内块级的问题，但是在元素间，会莫名产生一点间距
+影响计算像素
+两种解决方法
+ 删除元素间的换行 
+ 父元素font-size 0 副作用，子元素重新设定font-size*/
+#db-global-nav .global-nav-items li{
+    display:inline-block;
+    zoom:1;
+    line-height: 28px;
+    font-size: 12px;
+    vertical-align: baseline;
+}
+
+#db-global-nav .global-nav-items a{
+    display:inline-block;
+    zoom:1;
+    padding: 0 12px;
+    height: 28px;
+}
+
+#db-global-nav a:link,
+#db-global-nav a:visited,
+#db-global-nav a:hover, 
+#db-global-nav a:active{
+    color:#d5d5d5;
+}
+
+#db-global-nav a{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a, a:active, a:hover, a:link, a:visited{
+    color:#c5c5c5;
+    cursor: pointer;
+    text-decoration: none;
+}
+a:hover {
+    opacity: 0.8;
+}
+
+
+#db-global-nav .top-nav-doubanapp .lnk-doubanapp{
+    display: inline-block;
+    zoom:1;
+    padding: 0 8px;
+    height: 28px;
+}
+
+#db-global-nav .top-nav-info {
+    float: right;
+    margin: 0 12px 0 0;
+    line-height: 28px;
+}
+#db-global-nav .top-nav-info a
+{
+    display:inline-block;
+    zoom: 1;
+    margin: 0;
+    padding: 0 12px;
+    height: 28px;
+}
+
+#db-global-nav .top-nav-doubanapp {
+    float: right;
+    margin: 0 12px 0 0;
+    line-height: 28px;
+}
+
+#market-header{
+    position: relative;
+    z-index:2;
+    box-shadow: 0 1px 4px #e4e4e4;
+    height: 52px;
+}
+
+#market-header .header-inner{
+    zoom: 1;
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+}
+#market-header .header-inner:after, #market-header .header-inner:before{
+    display:table;
+    content:"";
+}
+
+#market-header .logo{
+    float: left;
+}
+
+#market-header .market-logo{
+    width: 87px;
+    height: 20px;
+    margin-top: 16px;
+}
+
+#market-header .market-logo, 
+#market-header .shop-logo{
+    display: block;
+    text-indent: -999em;
+    background-position:50%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: cover;
+    background-image: -webkit-image-set(url(./images/logo.png) 1x,url(./images/logo.png) 2x);
+}
+#market-header .market-user{
+    margin-left: 20px;
+    float: right;
+}
+#market-header .market-user .user-people{
+    display: inline-block;
+    padding: 15px 0;
+    cursor: pointer;
+}
+#market-header .market-user .user-people .user-pic{
+    color:#9b9b9b;
+    font-size: 12px;
+}
+#market-header .market-user .user-people .user-pic img{
+    display:inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+#market-header .market-user .user-people .nav-list{
+    position: absolute;
+    top: 52px;
+    z-index: 2;
+    background-color: #fff;
+    text-align: center;
+    padding: 8px 10px 12px;
+    box-shadow: 0 1px 4px #e4e4e4;
+    border-top: 1px solid #e4e4e4;
+}
+#market-header .market-user .user-people .nav-list .nav-item{
+    line-height: 1.2;
+    list-style: none;
+    padding: 8px 0;
+    white-space: nowrap;
+}
+#market-header .market-user .user-people .nav-list .nav-item a{
+    font-size: 13px;
+    color: #9b9b9b;
+    cursor: pointer;
+}
+#market-header .market-user .user-people .nav-list:before {
+    content: "";
+    display: block;
+    height: 4px;
+    background-color: #fff;
+    position: absolute;
+    top: -4px;
+    left: 0;
+    z-index: 3;
+}
+#market-header .market-user .user-people .nav-list:after {
+    content: "";
+    display: block;
+    height: 1px;
+    position: absolute;
+    top: -5px;
+    left: 50px;
+    z-index: 3;
+    background-color: #fff;
+    width: 8px;
+    height: 8px;
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border-top: 1px solid #e4e4e4;
+    border-bottom: 1px solid transparent;
+    border-left: 1px solid #e4e4e4;
+    border-right: 1px solid transparent;
+}
+#market-header .header-inner:after {
+    clear: both;
+}
+
+#market-header .header-inner:after, #market-header .header-inner:before {
+    display: table;
+    content: "";
+}
