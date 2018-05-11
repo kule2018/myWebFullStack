@@ -34,11 +34,7 @@
   background-size: 100%;
   animation: p8 steps(3, end) 1.5s infinite;
 }
-@-moz-keyframes p8 {
-  100% {
-    background-position: 0 150%;
-  }
-}
+
 @-webkit-keyframes p8 {
   100% {
     background-position: 0 150%;

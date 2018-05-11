@@ -1,0 +1,8 @@
+<template name="footer1">
+    <text>{{text}} footer1</text>
+</template>
+
+<import src="xxx.wxml" />
+<template name="footer2">
+    <text>{{text}} footer2</text>
+</template>

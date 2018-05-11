@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="titleBar">
+    <div class="status">
+      <!-- wxml  模板  {{数据状态}} 数据绑定
+      动态的  可编译  活
+      data是活  setData
+      只要状态一边，界面立即改变 数据绑定驱动事件的刷新-->
+      <text class="{{status=='1'?'active':''}}" data-status="1" bindtap = "showSatuts">全部</text>
+      <text class="{{status=='2'?'active':''}}" data-status="2" bindtap = "showSatuts">未完成</text>
+      <text class="{{status=='3'?'active':''}}" data-status="3" bindtap = "showSatuts">已完成</text>
+    </div>
+    <div class="add">
+      <button class="mini-btn" size="mini" type="primary" bindtap="addTodoShow">+添加</button>
+    </div>
+  </view>
+
+  <view class="addForm {{hide?'hide':''}}">
+    <view class="addForm-div">
+      <input type="text" placeholder="请输入任务" class="weui-input"/>
+      <view class="addForm-btn">
+        <button class="weui-btn min-btn" type="warn" size="mini" bindtap="addTodo">确定添加</button>
+        <button class="weui-btn min-btn" type="default" size="mini" bindtap="addTodoHide">取消</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,3 +1,0 @@
-<view class="section">
- <canvas canvas-id="myCanvas" style="border: 2px solid;"/>
-</view>

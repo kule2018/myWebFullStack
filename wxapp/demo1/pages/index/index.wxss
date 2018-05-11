@@ -1,9 +1,0 @@
-/**index.wxss**/
-.section{
-  margin: auto;
-  height: 100%;
-}
-
-#myCanvas{
-  width: 750rpx;
-}
