@@ -1,7 +1,7 @@
 /**app.wxss**/
 .container{
   /* rpx 不管什么手机，都是750rpx */
-  padding: 30rpx 0 0;
+  padding: 15rpx 0 0 0;
   position:absolute;
   top:0;
   left: 0;
