@@ -6,8 +6,10 @@ const app = getApp()
 
 Page({
   data: {
-    slides:[]
+    slides:[],
+    entities:null
   },
+  testDrive,
   onLoad(){
     this.setData({
       slides:app.globalData.slides

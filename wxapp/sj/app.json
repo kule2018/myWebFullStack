@@ -2,9 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/stories/stories",
     "pages/vehicles/show",
-    "pages/map/map"
+    "pages/map/map",
+    "pages/stories/show",
+    "pages/stories/stories"
   ],
   "window": {
     "backgroundTextStyle": "light",
