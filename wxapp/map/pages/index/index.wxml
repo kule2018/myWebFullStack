@@ -1,4 +1,0 @@
-
-<view class="container">
-    <map id="ofoMap" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" controls="{{controls}}" />
-</view>

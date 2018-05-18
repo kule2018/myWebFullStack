@@ -1,7 +1,0 @@
-<scroll-view style="height:200px;" scroll-y="true" bindscroll="scroll" bindscrolltoupper="upper" bindscrolltolower="lower"> 
-    <view id="green" class="scroll-view-item bc_green"></view>
-    <view id="red" class="scroll-view-item bc_red"></view>
-    <view id="blue" class="scroll-view-item bc_blue"></view>
-    <view id="yellow" class="scroll-view-item bc_yellow"></view>
-</scroll-view>
-<button bindtap="tap" size="mini">Button</button>
