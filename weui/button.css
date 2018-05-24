@@ -1,0 +1,63 @@
+.weui-btn {
+    /* 按钮内部，有小图标， loading  */
+    position: relative;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-left: 14px;
+    padding-right: 14px; */       
+    box-sizing: border-box;
+    height: 30px;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    border:1px solid green;
+    color: green;
+    line-height: 2.5555556;
+    border-radius: 5px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    width: 50%;
+    padding: 0;
+}
+.weui-btn_primary {
+    background: #ffffff;
+}
+.weui-str_money{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 40px;
+    margin-bottom: 200px;
+}
+
+.page__success{
+    text-align: center;
+    margin-top: 85px;
+    margin-bottom: 100px;
+}
+img{
+    width: 95px;
+    height: 95px;
+}
+
+#first{
+    display: block;
+    text-align: center;
+    font-size: 25px;
+    color: #00C800;
+    margin-top: -15px;
+}
+
+#second{
+    position: relative;
+    top: -8px;
+    display: inline-block;
+    font-size: 25px;
+    padding:0 0 0 0;
+
+}
+
+#third {
+    position: relative;
+    top: -8px;
+}

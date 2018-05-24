@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>界面</title>
+    <script>
+        (function(w) {
+            let s = w.document;
+            let r = s.documentElement;
+            let colWidth = r.clientWidth/10;
+            console.log(colWidth);
+            r.style.fontSize = colWidth + 'px';
+        })(window)
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            text-align: center;
+            font-size: .527777778rem;
+            color: #fff;
+            background: linear-gradient(to bottom, rgba(94,97,96,1) 0%,rgba(81,92,94,1) 22%,rgba(68,87,88,1) 45%,rgba(29,69,85,1) 72%,rgba(13,64,88,1) 100%);
+            overflow: hidden;
+            height: 100vh;
+        }
+        .circle-box{
+            display: inline-block;
+            border: 2px solid #638991;
+            width: 1.583333333rem;
+            height: 1.583333333rem;
+            border-radius: 50%;
+            font-size: .527777778rem;
+            margin: .39583333333rem .541666666667rem;
+            line-height: 1.583333333rem;
+            padding: 0;
+        }
+        .hd{
+            margin: 2.66666667rem 3.097222222rem; 
+        }
+        .bd{
+            width: 10rem;
+        }
+        .ft{
+            margin-bottom: 0;
+        }
+        .ft a{
+            color: #fff;
+            position: absolute;
+            text-decoration:none;
+        }
+        .call{
+            left: .25rem;
+            bottom: .25rem;
+        }
+        .cancel{
+            right: .25rem;
+            bottom: .25rem;
+        }
+        table{
+            margin: 0 auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hd">输入密码</div>
+        <div class="bd">
+            <table>
+                <tr>
+                    <td><a class="circle-box">1</a></td>
+                    <td><a class="circle-box">2</a></td>
+                    <td><a class="circle-box">3</a></td>
+                </tr>
+                <tr>
+                    <td><a class="circle-box">4</a></td>
+                    <td><a class="circle-box">5</a></td>
+                    <td><a class="circle-box">6</a></td>
+                </tr>
+                <tr>
+                    <td><a class="circle-box">7</a></td>
+                    <td><a class="circle-box">8</a></td>
+                    <td><a class="circle-box">9</a></td>
+                </tr>
+                <tr>
+                        <td></td>
+                        <td><a class="circle-box">0</a></td>
+                        <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="ft">
+            <a href="#" class="call">紧急呼叫</a>
+            <a href="#" class="cancel">取消</a>
+        </div>
+    </div>
+</body>
+</html>

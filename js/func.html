@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this绑定方式</title>
+</head>
+<body>
+    <script>
+    // 方法调用模式
+    // 方法可以使用this访问自己所属的对象，所以它能从对象中取值或对对象进行修改。
+    // this到对象的绑定发生在调用的时候
+    // 通过this可取得他们所属对象的上下文的方法称为公有方法
+    var myObject = {
+        value:0,
+        //在x属性中测试对象方法被调用前this指向为window
+        x:console.log('this指向'+this),
+        increment:function() {
+            // 验证对象方法调用之后this的绑定情况，this被绑定到了myOject对象
+            console.log('this指向'+this)
+        },
+        // 函数调用模式
+        add:function () {
+            var that = this;       //解决方法
+            var add = function (){
+                // 此模式调用函数时，this被绑定到全局对象，这是语言设计上的一个错误。
+                console.log('this指向'+this)
+                console.log('that指向'+that)
+            }   
+            // 倘若语言设计正确，那么当内部函数被调用时，this应该仍然绑定到外部函数的this变量
+            console.log('this指向'+this)
+            add ();
+        }
+    };
+
+    myObject.increment();
+    myObject.add();
+    //构造器调用模式
+    // 如果在一个在一个函数前面带上new来调用，那么背地里将会创建一个连接到该函数的prototype成员的新对象，同时this会被绑定到那个新对象上。
+
+    var Quo = function(string){
+        console.log(this)
+        this.status = string;
+         // 此时this指向对象Quo
+         console.log('this绑定到'+this)
+    }
+
+    // 给Quo的所有实例提供一个名为get_status的公共方法
+    Quo.prototype.get_status = function(){
+        // 此时this指向对象Quo
+        console.log('this绑定到'+this)
+        return this.status;
+    }
+    Quo('abc');
+    // 构造一个Quo实例
+    var myQuo = new Quo ('dl');
+    document.writeln(myQuo.get_status());
+    
+    // Apply调用模式
+    function Person(name,age){
+        this.name=name;
+        this.age=age;
+    }
+
+    function Student(name,age,grade){
+        Person.apply(this,arguments);
+        this.grade=grade;
+    }
+
+    var student = new Student('dl',20,3)
+    console.log(student)
+
+    </script>
+</body>
+</html>
