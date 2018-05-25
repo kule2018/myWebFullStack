@@ -20,11 +20,96 @@
             bottom: 0;
             background: rgba(0, 0, 0, .6);
         }
+        .weui-actionsheet {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            /* 不了解的 */
+            backface-visibility: hidden;
+            z-index: 5000;
+            width: 100%;
+            background-color: #efeff4;
+            transition: transform .3s, -webkit-transform .3s;
+        }
+        .weui-actionsheet__title{
+            position: relative;
+            height: 65px;
+            padding: 0 20px;
+            line-height: 1.4;
+            display: flex;
+            /* 不了解的 */
+            justify-content: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+            text-align: center;
+            font-size: 14px;
+            /* color: #808080; */
+            background: #fcfcfd;
+        }
+        .weui-actionsheet__title::before {
+            content: "asdas";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            height: 1px;
+            border-bottom: 1px solid #e5e5e5;
+            color: #e5e5e5;
+            -webkit-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+            -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+        }
+        .weui-actionsheet__title .weui-actionsheet__title-text{
+            overflow: hidden;
+            /* 不了解的 */
+            text-overflow: ellipsis;
+            display:-webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clanp:2;
+        }
+        p {
+            display: block;
+            -webkit-margin-before: 1em;
+            -webkit-margin-after: 1em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+            text-align: center;
+            color: #808080;
+        }
+        
+        .weui-actionsheet_toggle {
+            -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+        }
+
+
+        .weui-actionsheet__menu{
+            background-color: #fcfcfd;
+        }
+        .weui-actionsheet__cell{
+            position: relative;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 18px;
+        }
+        .weui-actionsheet__action{
+            margin-top: 6px;
+            background-color: #fcfcfd;
+        }
+
+
+        .as:active{
+            color: red;
+        }
     </style>
+
+        <a class="as" href="">11111</a>
 </head>
 <body>
     <div class="weui-mask"></div>
-    <div class="weui-actionsheet">
+    <div class="weui-actionsheet weui-actionsheet_toggle">
         <div class="weui-acitonsheet__title">
             <p class="weui-actionsheet__title-text">这是一个标题，可以为一行或者两行</p>
         </div>
@@ -38,5 +123,7 @@
         </div>
         
     </div>
+
+    
 </body>
 </html>
