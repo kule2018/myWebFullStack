@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单验证     策略模式</title>
+    <script src="validator.js"></script>
+</head>
+<body>
+    <form action="https://www.baidu.com/" id="registerForm" method="POST">
+        <div class="field">
+            请输入用户名:<input type="text" name="userName"/>
+        </div>
+        <div class="field">
+            请输入密码:<input type="password" name="password"/>
+        </div>
+        <div class="field">
+            请输入手机号码:<input type="tel" name="phoneNumber"/>
+        </div>
+        <button>提交</button>
+    </form>
+    <script>
+        const registerForm = document.getElementById('registerForm');
+        registerForm.onsubmit = function () {
+            // if(!userNameResult){
+            //     alert(userNameResult);
+            //     return false;
+            // }
+            // if(!passwordResult){
+            //     alert(passwordResult);
+            //     return false;
+            // }
+            // if(!phoneNumberResult){
+            //     alert(phoneNumberResult)
+            //     return false;
+            // }
+            // if(!mobileResult){
+            //     alert(mobileResult);
+            //     return false;
+            // }
+            var errorMsg = validatorFunc();
+            if (errorMsg) {
+                alert(errorMsg);
+                return false;
+            }
+            return true;
+            
+        }
+        // 具体的表单验证   -> strategies集合了表单的验证逻辑（抽象地去写验证）
+            // 抽象    validateFunc  具像的代码
+//             这些算法灵活多样，而且可以随意互相替换。这种解决方案就是本章要讨论的策略模式。
+
+// 定义：定义一系列的算法，把它们一个个封装起来，并且使它们可以相互替换。
+            // 用户名不能为空
+            // 什么元素，什么规则（抽象strategies），做什么验证（key）
+        function validatorFunc () {
+            // const userNameResult = strategies.isNonEmpty(registerForm.userName.value, '用户名不能为空');
+            // const phoneNumberResult = strategies.isNonEmpty(registerForm.phoneNumber.value,'请输入手机号');
+            // const passwordResult = strategies.Length(registerForm.password.value,6,16,'密码长度少于6位或大于16位');
+            // const mobileResult = strategies.isMobilePhone(registerForm.phoneNumber.value,'手机格式有误');
+            // if(userNameResult){
+            //     return userNameResult;
+            // }
+            // if(phoneNumberResult){
+            //     return phoneNumberResult;
+            // }
+            // if(passwordResult){
+            //     return passwordResult;
+            // }
+            // if(mobileResult){
+            //     return mobileResult;
+            // }
+            // 验证对象
+            // 验证函数任务中，已经有了验证策略类，有很多的不确定的数量表单元素及规则，要去验证
+            // 中介者模式，门清，内存，颜色，品牌，交给中介者对象，轻松很多。
+            // 要一个验证对象，专业的，将要验证的元素交给它，验证的过程，抽象
+            // 元素给对象？
+            var validator = new Validator();
+            validator.add(registerForm.userName,'isNonEmpty','用户名不能为空');
+            validator.add(registerForm.phoneNumber,'isNonEmpty','请输入手机号');
+            validator.add(registerForm.password,'Length:6:16','密码长度少于6位或大于16位');
+            validator.add(registerForm.phoneNumber,'isMobilePhone','手机格式有误');
+            var errorMsg = validator.start();
+            return errorMsg;
+        }
+        function Validator () {
+        this.cache = [];
+        }
+        Validator.prototype = {
+            // rule:6  规则名：6？+ 规则参数
+            add:function(dom, rule, errorMsg){
+                var ary = rule.split(':')
+                this.cache.push(function(){
+                    var strategy = ary.shift();
+                    ary.unshift(dom.value);
+                    ary.push(errorMsg);
+                    return strategies[strategy].apply(dom,ary)
+                })
+            },
+            start:function(){
+                for(var i =0,ValidatorFunc;ValidatorFunc = this.cache[i++];){
+                    var msg = ValidatorFunc();
+                    if(msg){
+                        return msg;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
