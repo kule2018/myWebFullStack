@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script>
+  
+
+    function Mobile(obj,e){
+        if(e.keyCode == 8) return
+        var value = obj.value;
+        console.log(value)
+        value = value.replace(/\s*/g, "");
+        var result = [];
+        for(var i = 0; i < value.length; i++){
+            if (i==3||i==7){
+                result.push(" " + value.charAt(i));
+            }
+            else{
+                result.push(value.charAt(i));
+            }
+        }
+        obj.value = result.join("");
+    }
+    </script>
+    <style>
+        div{
+            height: 100px;
+            background: #ccc;
+            vertical-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="tel" maxlength="13" id="mobile" onkeyup="Mobile(this,event)" onfocus="value=''" />
+    <div>
+        <input type="text">
+    </div>
+</body>
+</html>

@@ -421,11 +421,22 @@ time, mark, audio, video {
     // ie9
     // console.log(img.dataset.src);
   });
+  var dataImgs = {
+    "data":[
+      {"src":"index.jpg","title":"奇异博士"},
+      {"src":"index.jpg","title":"奇异博士"},
+      {"src":"index.jpg","title":"奇异博士"}
+    ]
+  }
   $(window).on('scroll',function(){
             if(checkScrollSlide){
                var node = document.querySelector('.item').cloneNode(true);
-               var grid = document.querySelector('.grid');
-               grid.appendChild(node);
+               var img = node.querySelector('.img-show');
+               var h3 = node.querySelector('h3');
+               img.src= data.src;
+               h3.innerHTML=data.title;
+               document.querySelector('.grid').appendChild(node);
+              //  grid.appendChild(node);
             }
         })
         function checkScrollSlide(){

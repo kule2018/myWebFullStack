@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            background-color: #ccc;
+            margin: 1em 10%;
+        }
+        h1 {
+            color: #333;
+            background-color: transparent;
+        }
+        a{
+            color: #c60;
+            background-color: transparent;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        ul{
+            padding: 0;
+        }
+        li{
+            float: left;
+            padding: 1em;
+            list-style: none;
+        }
+        img {
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <h1>图片库第一版</h1>
+    <ul>
+        <li><a href="images/1.jpg" title="first" onclick="showPic(this);return false;">first</a></li>
+        <li><a href="images/2.jpg" title="second" onclick="showPic(this);return false;">second</a></li>
+        <li><a href="images/3.jpg" title="third" onclick="showPic(this);return false;">third</a></li>
+        <li><a href="images/4.jpg" title="fouth" onclick="showPic(this);return false;">fouth</a></li>
+        <img id='placeholder' src="images/none.png" alt="占位图"/>
+        <p id='description'>Change an imges.</p>
+    </ul>
+
+    <script>
+        function showPic (whichpic) {
+            var source = whichpic.getAttribute('href');
+            var placeholder = document.getElementById('placeholder');
+            placeholder.setAttribute('src',source);
+            var text = whichpic.getAttribute('title');
+            var description = document.getElementById('description');
+            description.firstChild.nodeValue = text;
+        }
+        function countBodyChildren () {
+            var body_element = document.getElementsByTagName('body')[0];
+            // alert (body_element.nodeType);
+        }
+        window.onload = countBodyChildren;
+    </script>
+</body>
+</html>
