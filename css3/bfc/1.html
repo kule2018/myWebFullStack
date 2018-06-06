@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>margin重叠</title>
+    <style>
+        p{
+            color: #ff5555;
+            background: #ffcccc;
+            width: 200px;
+            line-height: 100px;
+            text-align: center;
+            margin: 100px;
+        }
+        .wrap {
+            overflow: hidden;
+        }
+        .wrap p {
+            margin-top: 150px;
+        }
+    </style>
+</head>
+<body>
+    <!-- BFC Block formatting context 块级格式化上下文
+    文档 块 block 页面上占位置
+    1.新的BFC overflow：hidden (不为visisble) 新的空间，告诉浏览器，重新进行Block Formatting 布局和定位
+    核心是，新的BFC ，给出了新的不受外界影响的块级格式化环境
+
+    定位    position  
+    广义的定位 块级元素 上下定位垂直方向的
+              行内元素 左右定位水平方向的
+    狭义的定位 float 在一行的左边或一行的右边
+              flex
+              position 
+
+    BFC 重建一个上下文环境 -->
+
+    <!-- BFC的约束规则
+    同一个BFC的两个相邻Box的margin 会重叠，于方向无关
+    破坏规则，新的BFC Context 上下文的概念
+    如何创建BFC？ 重新规划一块渲染区域（独立）
+    块级 （页面的基础Box） 格式化（渲染）
+    1.根元素天然是一个BFC
+    2.overflow:hidden 是一个BFC
+    3.float不为none
+    4 display inline-block tablie-cell
+    5 position：absolute fixed 只要不为static 
+    
+ -->
+
+    <p>廖总真有钱</p>
+    <!-- 1.根元素会创建一个bfc环境 body -->
+    <!-- 原来两个p 都在body下 相同的上下文环境 BFC  -->
+    <!-- .wrap并没有能力创建新的bfc -->
+    <div class="wrap"><p>发哥女朋友真漂亮</p></div>
+</body>
+</html>
