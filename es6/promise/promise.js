@@ -5,8 +5,6 @@ let promise =new Promise(resolve =>{
     }, 1000);
 })
 
-setTimeout(()=>{
     promise.then(value=>{
         console.log(value);
     })
-},2000)
