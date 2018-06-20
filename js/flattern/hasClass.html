@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box active huge_box"></div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script>
+        // const box = document.querySelector('.box');
+        // console.log(box.className)
+        // 判断元素是否具有类名
+        // console.log(box.classList.contains('box'))
+        // console.log(box.classList.contains('active'))
+        // console.log(box.classList.contains('huge_box'))
+        // 使用jquery判断
+        // console.log($('div').hasClass('box'))
+        // console.log($('div').hasClass('active'))
+        // console.log($('div').hasClass('huge_box'))
+
+        // 手写方法判断
+        // 类名字符串 用空格隔开 单纯indexOf判断 子字符串的可能
+        // 最开始第一个 最后 中间的类名 左右至少一个空格
+        // 1. 开始和结束, 有这个词就好了,词+空格 开始 ^\s*
+        // 结束 空格\s+词$
+        // 2. 中间情况     \s+词\s+
+        // const strClass = document.querySelector('.box').className;
+        
+
+
+        function hasClass(ele,cls) {
+            const strClass = document.querySelector(ele).className;
+            const reg = new RegExp('(^|\\s)'+cls+'(\\s|$)');
+            console.log(reg.test(strClass));
+        }
+        function removeClass (ele, cls) {
+            var strClass = document.querySelector(ele).className;
+            const reg = new RegExp('(^|\\s)'+cls+'(\\s|$)');
+            console.log(reg)
+            reg.test(strClass)?console.log(strClass.replace(cls,'')):alert('类名不存在')
+        }
+        hasClass('.box','box')
+        removeClass('.box','active')
+
+
+        
+    </script>
+</body>
+</html>
