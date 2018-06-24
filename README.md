@@ -1,5 +1,5 @@
 # hx_js_fullstack
-邓力js全栈学习
+我的漫漫前端路
  # git的时光机					   仓库中的.git 文件夹是版本库，不要乱动，否则就没法使用回退
  git log --pretty=oneline          查看commit记录
  git reset --hard HEAD^			   回退到上一版本	HEAD是git提供的一个指针，指向当前版本， HEAD^^指向上上个版本	HEAD~100  回退到前100个版本
