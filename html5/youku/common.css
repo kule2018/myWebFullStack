@@ -1,0 +1,40 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background: #0e0e5b;
+  color: #333;
+}
+.container {
+  margin: 0 auto;
+  text-align: center;
+  height: 182px;
+  width: 1352px;
+  background: #0b0b49;
+}
+.container img {
+  width: 144px;
+  height: 40px;
+  position: relative;
+  top: -20px;
+}
+.container .match {
+  position: absolute;
+  width: 1300px;
+}
+.container .match .panel {
+  width: 5541px;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+.container .match .match-item {
+  width: 321px;
+  height: 112px;
+  background: #562aab;
+  margin-right: 4px;
+  cursor: pointer;
+  background-image: url("//img.alicdn.com/tfs/TB13NdxwTtYBeNjy1XdXXXXyVXa-644-224.png") center 0 no-repeat;
+  background-size: 322px, 112px;
+}
