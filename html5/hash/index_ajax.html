@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax</title>
+</head>
+<style>
+    .flex{
+        display: flex;
+    }
+    .flex a{
+        flex: 1;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+    }
+    .msg{
+        background-color: lightcoral;
+        height: 400px;
+        width: 100%;
+    }
+</style>
+<body>
+    <div class="box flex">
+        <a href="#!a">A</a>
+        <a href="#!b">B</a>
+        <a href="#!c">C</a>
+    </div>
+    <div class="msg">
+        
+    </div>
+    <script>
+        window.addEventListener('hashchange', ()=>{
+            let tag = location.hash            //window为顶级对象可以省略
+            if(!tag) return false;
+            tag = tag.replace('#!','');
+            const file = `${tag}.json`
+            fetchData(file);
+        }, false)
+        function fetchData (file) {
+            fetch(file).then(res => res.json())
+            .then(data => {
+                document.querySelector('.msg').innerHTML = JSON.stringify(data["data"])
+                console.log(data)
+            })
+        }
+        
+        
+    </script>
+</body>
+</html>
