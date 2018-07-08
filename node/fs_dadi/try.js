@@ -15,14 +15,13 @@ const fs = require('fs')
 // })
 
 // 2. 找出html目录下面的所有目录，然后打印出来
-// function findDir (dir) {
+// 写法一   es6
+// function getDir (dir) {
 //     fs.readdir(dir,(err,files)=>{
 //         if(err){
 //             console.log(err)
 //         }
-//         // console.log(files)
 //         files.forEach((item)=>{
-//             // console.log(item)
 //             fs.stat(`html/${item}`,(err,file)=>{       //fs.stat是异步方法
 //                 if(err){
 //                     return false
@@ -30,38 +29,35 @@ const fs = require('fs')
 //                 if(file.isDirectory()){
 //                     console.log(item)
 //                 }
-//                 // console.log(item)
 //             })
 //         })
 //     })
 // }
-// findDir('html')
+// getDir('html')
 
-// function findDir (dir) {
-    // fs.readdir('html',(err,files)=>{
-    //     if(err){
-    //         console.log(err)
-    //     }
-    //     // console.log(files)
-    //     for(var i=0;i<files.length;i++){
-    //         console.log(i)
-    //         fs.stat(files[i],(err,file)=>{       //fs.stat是异步方法
-    //             // if(err){
-    //             //     return false
-    //             // }
-    //             // if(file.isDirectory()){
-    //             //     console.log(files[i])
-    //             // }
-    //             console.log(i)
-    //             console.log(files[i])
-    //         })
-    //     }
-    // })
-
-    for(let i=0;i<5;i++){
-        setTimeout(() => {
-            console.log(i)
-        }, 200);
-    }
-// }
-// findDir('html')
+// 写法二  递归
+var fileArr=[]
+function getDir (dir) {
+    fs.readdir(dir,(err,files)=>{
+        if(err){
+            console.log(err) 
+        }
+        else{     
+            (function getFile(i) {
+                if(i==files.length){
+                    console.log('目录：');
+                    console.log(fileArr);   /*打印出所有的目录*/
+                    return false;
+                }
+                fs.stat(`${dir}/${files[i]}`,(err,stats)=>{
+                    // console.log(files[i])
+                    if(stats.isDirectory()){
+                        fileArr.push(files[i])
+                    }
+                    getFile(i+1)
+                })
+            })(0)
+        }
+    })
+}
+getDir('html')
