@@ -15,6 +15,12 @@ http.createServer((req,res)=>{
         })
     }
 
+    if(pathname == '/index') {
+        ejs.renderFile('views/index.ejs',{},(err,data) => {
+            res.end(data)
+        })
+    }
+
     if(pathname == '/dologin' && req.method === 'GET') {
 
         var username = url.parse(req.url,true).query.username
