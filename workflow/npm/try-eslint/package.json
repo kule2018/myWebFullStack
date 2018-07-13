@@ -10,6 +10,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^5.1.0"
+    "eslint": "^5.1.0",
+    "vuex": "^3.0.1"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7"
   }
 }
