@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas入门</title>
+</head>
+<body>
+    <button onclick="clean()">清空</button>
+    <canvas id="myCanvas" style="border:1px solid;" width="300" height="200"></canvas>
+    
+    <script type="text/javascript">
+        var canvas = document.getElementById('myCanvas')
+        var context  = canvas.getContext('2d')
+        // 画直线
+        // context.moveTo(0,0)
+        // context.lineTo(200,100)
+        // context.stroke()
+        // 画矩形
+        // context.fillStyle = '#ff00ff'
+        // context.fillRect(10,10,100,50)      //前为坐标（50，25） 后为尺寸w100 h500
+        // 画矩形2
+        // context.strokeStyle = '#000aff'    //轮廓
+        // context.strokeRect(50,50,100,50)
+        // 画圆
+        // for(let i=0;i<15;i++) {
+        //     context.beginPath()
+        //     context.strokeStyle = '#00ff33'
+        //     context.arc(200,200,i*10,0,Math.PI*3/2,true)
+        //     context.stroke()
+        // }
+        // 画三角形1
+        // context.beginPath()
+        // context.fillStyle = '#000aff' 
+        // context.moveTo(25,25)
+        // context.lineTo(150,25)
+        // context.lineTo(25,150)
+        // context.closePath()
+        // context.fill()
+        // 画三角形2
+        // context.beginPath()
+        // context.strokeStyle = '#000aff' 
+        // context.moveTo(25,25)
+        // context.lineTo(150,25)
+        // context.lineTo(25,150)
+        // context.closePath()
+        // context.stroke()
+        // 绘制二次方贝塞尔曲线
+        quadraticCurveTo
+
+
+
+
+        // 清除画布
+        function clean() {
+            console.log('清空')
+            context.clearRect(0,0,300,200)
+        }
+    </script>
+</body>
+</html>
