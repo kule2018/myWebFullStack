@@ -4,6 +4,6 @@
     params:  :id = 123456
     results
     {
-        name:'曾凯',
+        name:'zk',
         desc:'风一样的男子'
     }
