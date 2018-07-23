@@ -11,3 +11,4 @@ var a = [1,2,3]
 let b = a.concat()
 console.log(a)
 console.log(b!=a)
+
