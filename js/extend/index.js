@@ -16,11 +16,9 @@ function Person(name) {
     return this.books;
   }
   function extend(subClass, superClass) {
-
         subClass.prototype = new superClass();
     // constructor属性丢失了
         subClass.constructor = superClass;
-
   }
   extend(Author,Person);
   const author = new Author('高尔基', ['我的offer']);
