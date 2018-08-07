@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>事件委托</title>
+</head>
+<style>
+  #div1{
+    background: #f3f5f7;
+    border: 1px solid #eee;
+  }
+  #div2{
+    margin-top: 20px;
+    background: #f3f5f7;
+    border: 1px solid #eee;
+  }
+</style>
+<body>
+  <div id="div1">
+    <a id="link1" href="http://hx-dl.top">hx-dl.top</a>
+    <a id="link2" href="http://hx-dl.top">hx-dl.top</a>
+    <a id="link3" href="http://hx-dl.top">hx-dl.top</a>
+    <a id="link4" href="http://hx-dl.top">hx-dl.top</a>
+    <p id="p1">激活</p>
+    <p id="p2">取消</p>
+  </div>
+  <div id="div2">
+    <p id="p3">红色</p>
+    <p id="p4">蓝色</p>
+  </div>
+  <script>
+    function bindEvent(elem, type, selecotor, fn) {
+      if(fn == null) {
+        fn = selecotor,
+        selecotor = null
+      }
+      elem.addEventListener(type, (e) => {
+        var target
+        if(selecotor) {
+          target = e.target
+          if(target.matches(selecotor)) {
+            // console.log('代理')
+            fn.call(target, e)
+          }
+        }else {
+          // console.log('不代理')
+          fn(e)
+        }
+      })
+    }
+    var div1 = document.getElementById('div1')
+    bindEvent(div1, 'click', 'a', function (e){
+      e.preventDefault()
+      console.log(this.innerHTML)
+    })
+    var p1 = document.getElementById('p1')
+    bindEvent(p1, 'click', function(e){
+      console.log('激活')
+    })
+  </script>
+</body>
+</html>
