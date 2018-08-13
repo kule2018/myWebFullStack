@@ -11,53 +11,41 @@
     background: #f3f5f7;
     border: 1px solid #eee;
   }
-  #div2{
-    margin-top: 20px;
-    background: #f3f5f7;
-    border: 1px solid #eee;
-  }
 </style>
 <body>
   <div id="div1">
     <a id="link1" href="http://hx-dl.top">hx-dl.top</a>
-    <a id="link2" href="http://hx-dl.top">hx-dl.top</a>
-    <a id="link3" href="http://hx-dl.top">hx-dl.top</a>
-    <a id="link4" href="http://hx-dl.top">hx-dl.top</a>
     <p id="p1">激活</p>
     <p id="p2">取消</p>
   </div>
-  <div id="div2">
-    <p id="p3">红色</p>
-    <p id="p4">蓝色</p>
-  </div>
   <script>
-    function bindEvent(elem, type, selecotor, fn) {
+    function bindEvent(elem, type, selector, fn) {
       if(fn == null) {
-        fn = selecotor,
-        selecotor = null
+        fn = selector,
+        selector = null
       }
       elem.addEventListener(type, (e) => {
-        var target
-        if(selecotor) {
-          target = e.target
-          if(target.matches(selecotor)) {
-            // console.log('代理')
+        if(selector) {
+          var target = e.target
+          if(target.matches(selector)) {
             fn.call(target, e)
           }
-        }else {
-          // console.log('不代理')
+        }else{
           fn(e)
         }
       })
     }
+
     var div1 = document.getElementById('div1')
-    bindEvent(div1, 'click', 'a', function (e){
+    bindEvent(div1, 'click', 'a', function(e) {
       e.preventDefault()
       console.log(this.innerHTML)
     })
-    var p1 = document.getElementById('p1')
-    bindEvent(p1, 'click', function(e){
-      console.log('激活')
+    bindEvent(div1, 'click', '#p1', function(e) {
+      alert('激活')
+    })
+    bindEvent(div1, 'click', '#p2', function(e) {
+      alert('取消')
     })
   </script>
 </body>
